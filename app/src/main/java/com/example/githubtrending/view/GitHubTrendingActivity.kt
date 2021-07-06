@@ -1,18 +1,24 @@
 package com.example.githubtrending.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.example.githubtrending.R
+import androidx.viewbinding.ViewBinding
+import com.example.githubtrending.databinding.ActivityMainBinding
 import com.example.githubtrending.viewmodel.GitHubTrendingViewModel
 
+
 class GitHubTrendingActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     lateinit var gitHubTrendingViewModel: GitHubTrendingViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         gitHubTrendingViewModel = ViewModelProviders.of(this).get(GitHubTrendingViewModel::class.java)
+
+        setSupportActionBar(binding.toolbar)
     }
 }
