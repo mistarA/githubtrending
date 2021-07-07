@@ -143,8 +143,8 @@ class TrendingViewModel(application: Application) : AndroidViewModel(application
         if (last  == 0L) return true
         val now = System.currentTimeMillis()
 
-        // 600000 => 600
-        val diffMinutes: Long = ((now - last) / (60 * 1000)) % 60
+        // 600000 / 1000 => 600 seconds / 60 => 10 minutes
+        val diffMinutes: Long = ((now - last) / (60 * 1000))
         Log.d("==== time", now.toString())
         Log.d("==== time", last.toString())
         Log.d("==== time", diffMinutes.toString())
