@@ -11,4 +11,12 @@ class SharedPreferencesHelper(private val sharedPreferences: SharedPreferences) 
     fun getString(key: String): String? {
         return sharedPreferences.getString(key, "")
     }
+
+    fun putLong(key: String, value: Long) {
+        sharedPreferences.edit().putLong(key, value).apply()
+    }
+
+    fun getLong(key: String): Long {
+        return sharedPreferences.getLong(key, 0L)
+    }
 }
